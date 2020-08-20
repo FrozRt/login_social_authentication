@@ -1,0 +1,6 @@
+/task_env/
+/.idea/
+/__pycache__
+/login_social_authentication/.env
+/authentication_app/__pycache__/
+/login_social_authentication/__pycache__/
