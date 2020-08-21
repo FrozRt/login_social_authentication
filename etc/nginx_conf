@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name 95.216.145.86; # здесь прописать или IP-адрес или доменное имя сервера
+    server_name progdude.info; # здесь прописать или IP-адрес или доменное имя сервера
     access_log  /var/log/nginx/example.log;
  
     location /static/ {
