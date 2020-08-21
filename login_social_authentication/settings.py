@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don"t run with debug turned on in production!
 DEBUG = (os.getenv("DEBUG") == "true")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.getenv("HOST"), "127.0.0.1",]
 
 # Application definition
 
@@ -97,10 +97,11 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static/"),
-)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'
+STATIC_ROOT  = os.path.join(BASE_DIR, 'static/')
+#STATICFILES_DIRS =  [os.path.join(BASE_DIR, 'static/'), ]
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.vk.VKOAuth2',  # бекенд авторизации через ВКонтакте
@@ -113,7 +114,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
-# SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_VK_OAUTH2_KEY = '7572139'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = '4TRrX8Gj4j2xu11Vnxeh'
-# SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+SOCIAL_AUTH_VK_OAUTH2_KEY = os.getenv("VK_OAUTH_KEY")
+SOCIAL_AUTH_VK_OAUTH2_SECRET = os.getenv("VK_OAUTH_SECRET")
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'friends']
