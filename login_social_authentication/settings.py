@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don"t run with debug turned on in production!
 DEBUG = (os.getenv("DEBUG") == "true")
 
-ALLOWED_HOSTS = ["95.216.145.86", "127.0.0.1"]
+ALLOWED_HOSTS = [os.getenv("HOST"), "127.0.0.1",]
 
 # Application definition
 
@@ -115,6 +115,6 @@ LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_VK_OAUTH2_KEY = '7572139'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = '4TRrX8Gj4j2xu11Vnxeh'
+SOCIAL_AUTH_VK_OAUTH2_KEY = os.getenv("VK_OAUTH_KEY")
+SOCIAL_AUTH_VK_OAUTH2_SECRET = os.getenv("VK_OAUTH_SECRET")
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'friends']
